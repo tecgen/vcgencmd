@@ -1,8 +1,11 @@
-# vcgencmd
-A mock for the vcgencmd command of the Raspberry Pi. It helps you to develop application that rely on this Raspberry Pi specific command within an non-Raspberry environemnt. 
+# What does this application?
 
-## build
+This application is a mock for the vcgencmd command of the Raspberry Pi. It helps you to develop applications, that rely on this Raspberry Pi specific command within an non-Raspberry environment. 
 
-cargo build
-./target/debug/vcgencmd measure_temp
+
+## Build
+
+    cargo build
+
+    ./target/debug/vcgencmd measure_temp
 
