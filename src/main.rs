@@ -1,5 +1,7 @@
 use std::env;
 
+// see also https://elinux.org/RPI_vcgencmd_usage
+
 fn main() {
     	let args: Vec<String> = env::args().collect();
     	
@@ -8,8 +10,8 @@ fn main() {
 		// debug print out all arguments
 		//println!("{}", i); 
 		match i.as_ref() {
-			"measure_clock" => println!("1500000"),
-			"measure_volts" => println!("1.2"),
+			"measure_clock" => measure_clock(),
+			"measure_volts" => measure_volts(),
 			"measure_temp" => measure_temp(),
 			_ => print!(""),
 		}
@@ -19,6 +21,29 @@ fn main() {
 	
 }
 
+fn measure_clock() {
+	println!("arm:    frequency(45)=700000000");
+	println!("core:   frequency(1)=250000000");
+	println!("h264:   frequency(28)=0");
+	println!("isp:    frequency(42)=250000000");	
+	println!("v3d:    frequency(43)=250000000");
+	println!("uart:   frequency(22)=3000000");
+	println!("pwm:    frequency(25)=0");
+	println!("emmc:   frequency(47)=100000000");
+	println!("pixel:  frequency(29)=154000000");
+	println!("vec:    frequency(10)=0");
+	println!("hdmi:   frequency(9)=163682000");
+	println!("dpi:    frequency(4)=0");
+}
+
+fn measure_volts() {
+	println!("core:   volt=1.20V");
+	println!("sdram_c:        volt=1.20V");
+	println!("sdram_i:        volt=1.20V");
+	println!("sdram_p:        volt=1.20V");
+
+}
+
 fn measure_temp() {
-	println!("45.2");
+	println!("temp=45.2'C");
 }
