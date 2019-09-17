@@ -5,7 +5,7 @@ This application is a mock for the vcgencmd command of the Raspberry Pi. It help
 
 ## Build
 
-    cargo build
+    cargo build --release
 
-    ./target/debug/vcgencmd measure_temp
+    ./target/release/vcgencmd measure_temp
 
