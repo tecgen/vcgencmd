@@ -3,25 +3,36 @@ use std::env;
 // see also https://elinux.org/RPI_vcgencmd_usage
 
 fn main() {
-    	let args: Vec<String> = env::args().collect();
+	let args: Vec<String> = env::args().collect();
+	//println!("{}", args.len());
     	
-	// for all given arguments
-	for i in &args { 
-		// debug print out all arguments
-		//println!("{}", i); 
-		match i.as_ref() {
-			"measure_clock" => measure_clock(),
-			"measure_volts" => measure_volts(),
-			"measure_temp" => measure_temp(),
-			_ => print!(""),
-		}
+	// at least one argument has been given
+	if args.len() > 1 {
+
+
+		let command = &args[1];
+			// debug print out all arguments
+			//println!("{}", i);
+			match command.as_ref() {
+				"measure_clock" => measure_clock(&args),
+				"measure_volts" => measure_volts(),
+				"measure_temp" => measure_temp(),
+				_ => print!(""),
+			}
+		//}
 	}
 
 	
 	
 }
 
-fn measure_clock() {
+fn measure_clock(args: &Vec<String>) {
+
+	let max: i32 = *&args.len() as i32;
+	for i in args {
+		//println!("{}", i);
+	}
+
 	println!("arm:    frequency(45)=700000000");
 	println!("core:   frequency(1)=250000000");
 	println!("h264:   frequency(28)=0");
@@ -34,6 +45,7 @@ fn measure_clock() {
 	println!("vec:    frequency(10)=0");
 	println!("hdmi:   frequency(9)=163682000");
 	println!("dpi:    frequency(4)=0");
+
 }
 
 fn measure_volts() {
